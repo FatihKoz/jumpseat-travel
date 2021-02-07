@@ -21,10 +21,11 @@ On some servers, after enabling/disabling modules an app cache cleaning process 
 
 ***** **Usage**
 
-S4. Place the widget like other widgets you use, anywhere protected with login/auth would be good for the widget.\ 
+S4. Place the widget like other widgets you use, anywhere protected with login/auth would be good for the widget.
+
 Like Dashboard or User Profile or any other password protected area you have 'cause the widget will not be visible without login.
 
-S5. Call the widget with the options you want to use for JumpSeat Travel.\
+S5. Call the widget with the options you want to use for JumpSeat Travel.
 
 ['price' => 'free'] (this is the default option) no ticket costs, travel is free of charge.\
 ['price' => 50] (or any number you wish except 0) ticket will cost 50 $/Eur (currency comes from your phpvms settings).\
@@ -37,9 +38,7 @@ To fine tune the 'auto' option, you can also define the base price per nautical 
 Please be carefull with the base price definition, anything above 0.50 will make your jumpseats really expensive 'cause it gots multiplied
 by the distance directly.
 
-Real world companies normally offer reduced/discounted prices to "ID Travel" partners (other company workers),\ 
-though they are mostly lower than their base economy ticket prices and offer services between economy and business class,\ 
-0.13 or 0.15 cents per nm is a good start/default values to have.
+Real world companies normally offer reduced/discounted prices to "ID Travel" partners (other company workers), though they are mostly lower than their base economy ticket prices and offer services between economy and business class, 0.13 or 0.15 cents per nm is a good start/default values to have.
 
 *****
 
