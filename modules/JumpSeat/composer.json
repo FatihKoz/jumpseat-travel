@@ -1,0 +1,20 @@
+{
+    "name": "JumpSeat",
+    "type": "phpvms-module",
+    "description": "JumpSeat Travel Module",
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\JumpSeat\\Providers\\JumpSeatServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\JumpSeat\\": "."
+        }
+    }
+}

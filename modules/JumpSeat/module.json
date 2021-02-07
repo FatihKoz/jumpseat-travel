@@ -1,0 +1,14 @@
+{
+    "name": "JumpSeat",
+    "alias": "jumpseat",
+    "description": "JumpSeat Travel Module",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\JumpSeat\\Providers\\JumpSeatServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
