@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\JumpSeat\Controllers;
+namespace Modules\JumpSeat\Http\Controllers;
 
 use App\Contracts\Controller;
 use App\Models\User;
