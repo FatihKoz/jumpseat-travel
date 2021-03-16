@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Widgets;
+namespace Modules\JumpSeat\Widgets;
 
 use App\Contracts\Widget;
 use App\Models\Airport;

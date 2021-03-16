@@ -65,7 +65,7 @@ class JumpSeatServiceProvider extends ServiceProvider
   public function registerViews()
   {
     $viewPath = resource_path('views/modules/JumpSeat');
-    $sourcePath = __DIR__.'/../Views';
+    $sourcePath = __DIR__.'/../Resources/views';
 
     $this->publishes([$sourcePath => $viewPath,], 'views');
 
