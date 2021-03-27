@@ -1,5 +1,5 @@
 @if(Auth::check())
-  {{ Form::open(array('action' => '\Modules\JumpSeat\Controllers\JumpSeatController@jstravel', 'method' => 'get')) }}
+  {{ Form::open(array('action' => '\Modules\JumpSeat\Http\Controllers\JumpSeatController@jstravel', 'method' => 'get')) }}
     <div class="card mb-2">
       <div class="card-header p-1"><h5 class="m-1 p-0"><i class="fas fa-ticket-alt float-right"></i>JumpSeat Travel</h5></div>
       <div class="card-body p-1">

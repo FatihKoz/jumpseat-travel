@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Widgets;
+namespace Modules\JumpSeat\Widgets;
 
 use App\Contracts\Widget;
 use App\Models\Airport;
@@ -13,7 +13,7 @@ class JumpSeat extends Widget
   {
     $jairports = Airport::select('id', 'name', 'location', 'country')->orderBy('id')->get();
 
-    return view('widgets.jumpseat', [
+    return view('JumpSeat::jumpseat', [
       'jairports' => $jairports,
       'price'     => $this->config['price'],
       'basep'     => $this->config['base'],

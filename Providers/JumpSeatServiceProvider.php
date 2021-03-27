@@ -33,7 +33,7 @@ class JumpSeatServiceProvider extends ServiceProvider
         'as'     => 'JumpSeat.',
         'prefix' => '',
         'middleware' => ['web'],
-        'namespace'  => 'Modules\JumpSeat\Controllers',
+        'namespace'  => 'Modules\JumpSeat\Http\Controllers',
     ], function () {
       Route::group([
         'middleware' => ['auth'],
@@ -47,7 +47,7 @@ class JumpSeatServiceProvider extends ServiceProvider
         'as'     => 'JumpSeat.',
         'prefix' => 'admin',
         'middleware' => ['web', 'role:admin'],
-        'namespace'  => 'Modules\JumpSeat\Controllers',
+        'namespace'  => 'Modules\JumpSeat\Http\Controllers',
     ], function () {
       Route::group([],
         function () {
@@ -65,14 +65,13 @@ class JumpSeatServiceProvider extends ServiceProvider
   public function registerViews()
   {
     $viewPath = resource_path('views/modules/JumpSeat');
-    $sourcePath = __DIR__.'/../Views';
+    $sourcePath = __DIR__.'/../Resources/views';
 
     $this->publishes([$sourcePath => $viewPath,], 'views');
 
-    $paths = array_map( function ($path) { return $path.'/modules/JumpSeat';}, \Config::get('view.paths'));
-
-    $paths[] = $sourcePath;
-    $this->loadViewsFrom($paths, 'JumpSeat');
+    $this->loadViewsFrom(array_merge(array_map(function ($path) {
+	return $path . '/modules/JumpSeat';
+    }, \Config::get('view.paths')), [$sourcePath]), 'JumpSeat');
   }
 
   public function provides(): array { return []; }
