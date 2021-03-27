@@ -13,8 +13,7 @@ On some servers, after enabling/disabling modules an app cache cleaning process 
 
 ***** Usage
 
-S2. Place the widget as described below, anywhere protected with login/auth would be good.\ 
-    (Dashboard or User Profile or any other password protected area 'cause widget will not be visible without login)
+S2. Place the widget as described below, anywhere protected with login/auth would be good. (Dashboard or User Profile or any other password protected area 'cause widget will not be visible without login)
 
     @widget('Modules\JumpSeat\Widgets\JumpSeat')
 
@@ -25,7 +24,7 @@ S3. (Optional) Adjust the options you want to use for JumpSeat Travel.
 ['price' => 'free'] (this is the default option) no ticket costs, travel is free of charge.\
 ['price' => 50] (or any number you wish except 0) ticket will cost 50 $/Eur (currency of your phpvms settings).\
 ['price' => 'auto'] ticket price will be calculated according to the great circle distance between the airports travelled.\
-['price' => 'auto', 'base' => 0.25] this will force the auto price system to use 0.25 cents per nm.\
+['price' => 'auto', 'base' => 0.25] this will force the auto price system to use 0.25 cents per nm.
 
 Please be carefull with the base price definition, anything above 0.50 will make your jumpseats really expensive 'cause it gots multiplied by the distance directly.
 
