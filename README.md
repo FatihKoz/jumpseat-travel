@@ -6,7 +6,7 @@ All settings/adjustments are done via widget config.
 
 ***** Installation Steps 
 
-S1. Upload the module (or pull via GitHub) to your root/modules folder.
+S1. Upload the contents of the module (or pull via GitHub) to your root/modules/JumpSeat folder.
 
 Go to admin section and enable the module, that's all.\
 On some servers, after enabling/disabling modules an app cache cleaning process may be necessary (check admin/maintenance).
