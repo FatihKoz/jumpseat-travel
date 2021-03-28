@@ -1,10 +1,10 @@
 @if(Auth::check())
-  {{ Form::open(array('action' => '\Modules\JumpSeat\Http\Controllers\JumpSeatController@jstravel', 'method' => 'get')) }}
+  {{ Form::open(array('action' => '\Modules\JumpSeat\Http\Controllers\JumpSeatController@jstravel', 'method' => 'post')) }}
     <div class="card mb-2">
-      <div class="card-header p-1"><h5 class="m-1 p-0"><i class="fas fa-ticket-alt float-right"></i>JumpSeat Travel</h5></div>
+      <div class="card-header p-1"><h5 class="m-1 p-0"><i class="fas fa-ticket-alt float-right"></i>@lang('JumpSeat::jstravel.jstitle')</h5></div>
       <div class="card-body p-1">
         <select name="newloc" id="destination" class="form-group input-group mt-1 mb-1 p-1">
-          <option value="">Please Select Your Destination</option>
+          <option value="">@lang('JumpSeat::jstravel.jsdropdown')</option>
           @foreach($jairports as $destination)
             <option value="{{ $destination->id }}">{{ $destination->id }} : {{ $destination->name }} ({{ $destination->location }})</option>
           @endforeach
@@ -12,13 +12,13 @@
       </div>
       <div class="card-footer p-1 text-right">
         @if ($price === 'free')
-          <i class="fas fa-id-card fa-2x text-success float-left" title="Free ID Travel For Flight Crew"></i>
+          <i class="fas fa-id-card fa-2x text-success float-left" title="@lang('JumpSeat::jstravel.iconfree')"></i>
         @elseif ($price === 'auto')
-          <i class="fas fa-money-bill-wave fa-2x text-danger float-left" title="Automatic Ticket Price Calculation"></i>
+          <i class="fas fa-money-bill-wave fa-2x text-danger float-left" title="@lang('JumpSeat::jstravel.iconauto')"></i>
         @elseif ($price != 'free' && $price != 'auto')
-          <i class="fas fa-money-bill fa-2x text-info float-left" title="Fixed Ticket Price: {{ $price }} {{ setting('units.currency') }}"></i>
+          <i class="fas fa-money-bill fa-2x text-info float-left" title="@lang('JumpSeat::jstravel.iconfixed') {{ $price }} {{ setting('units.currency') }}"></i>
         @endif
-        <button class="btn btn-sm btn-primary" type="submit">Travel</button>
+        <button class="btn btn-sm btn-primary" type="submit">@lang('JumpSeat::jstravel.jsbutton')</button>
       </div>
       <input type="hidden" name="price" value="{{ $price }}">
       <input type="hidden" name="basep" value="{{ $basep }}">

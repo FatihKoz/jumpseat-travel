@@ -15,6 +15,7 @@ class JumpSeatServiceProvider extends ServiceProvider
     $this->moduleSvc = app(ModuleService::class);
     $this->registerLinks();
     $this->registerRoutes();
+    $this->registerTranslations();
     $this->registerConfig();
     $this->registerViews();
   }
@@ -38,7 +39,7 @@ class JumpSeatServiceProvider extends ServiceProvider
       Route::group([
         'middleware' => ['auth'],
       ], function () {
-        Route::get('jstravel', 'JumpSeatController@jstravel')->name('jstravel');
+        Route::post('jstravel', 'JumpSeatController@jstravel')->name('jstravel');
       });
     });
 
@@ -62,6 +63,17 @@ class JumpSeatServiceProvider extends ServiceProvider
     $this->mergeConfigFrom( __DIR__.'/../Config/config.php', 'JumpSeat');
   }
 
+  public function registerTranslations()
+  {
+    $langPath = resource_path('lang/modules/JumpSeat');
+
+    if (is_dir($langPath)) {
+      $this->loadTranslationsFrom($langPath, 'JumpSeat');
+    } else {
+      $this->loadTranslationsFrom(__DIR__.'/../Resources/lang', 'JumpSeat');
+    }
+  }
+
   public function registerViews()
   {
     $viewPath = resource_path('views/modules/JumpSeat');
@@ -70,7 +82,7 @@ class JumpSeatServiceProvider extends ServiceProvider
     $this->publishes([$sourcePath => $viewPath,], 'views');
 
     $this->loadViewsFrom(array_merge(array_map(function ($path) {
-	return $path . '/modules/JumpSeat';
+      return $path . '/modules/JumpSeat';
     }, \Config::get('view.paths')), [$sourcePath]), 'JumpSeat');
   }
 

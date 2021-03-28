@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Carbon;
+use Lang;
 
 class JumpSeatController extends Controller
 {
@@ -23,13 +24,13 @@ class JumpSeatController extends Controller
     $userloc = $user->curr_airport_id;
     if (!$userloc) { $userloc = $user->home_airport_id; }
     // Get Form Values
-    $price = $request->input('price');
-    $basep = $request->input('basep');
-    $croute = $request->input('croute');
-    $newloc = $request->input('newloc');
+    $price = $request->price;
+    $basep = $request->basep;
+    $croute = $request->croute;
+    $newloc = $request->newloc;
     // Return If No Destination Set Or User Is Already At Selected Destination
     if (!$newloc || $newloc == $userloc) {
-      flash()->error('JumpSeat travel not possible without a valid destination!');
+      flash()->error(Lang::get('JumpSeat::jstravel.errordest'));
       return redirect(url($croute));
     }
     // If Travel Is Free Move Pilot And Return
@@ -37,7 +38,7 @@ class JumpSeatController extends Controller
       $user->curr_airport_id = $newloc;
       $user->save();
 
-      flash()->success('JumpSeat travel completed, you are at '.$newloc.' now.');
+      flash()->success(Lang::get('JumpSeat::jstravel.successfree', ['location' => $newloc]));
       return redirect(url($croute));
     }
     // If Automatic Price Is Set Calculate Distance And Define Ticket Price
@@ -53,7 +54,7 @@ class JumpSeatController extends Controller
     // Check User Balance And Decide What To Do
     if ($ticketprice > $user->journal->balance) {   
       // User Can Not Afford The Ticket Price   
-      flash()->error('JumpSeat travel not possible, not enough funds! You need at least '.$ticketprice);
+      flash()->error(Lang::get('JumpSeat::jstravel.errorfunds', ['price' => $ticketprice]));
       return redirect(url($croute));
 
     } elseif ($ticketprice < $user->journal->balance) {
@@ -84,9 +85,18 @@ class JumpSeatController extends Controller
         $user->save();
       // Set Flash Messages With Relevant Information
       if ($price === 'auto') {
-        flash()->success('JumpSeat travel completed, you are at '.$newloc.' now. Ticket price was '.$ticketprice.' for '.$traveldistance.' nm');
+        flash()->success(Lang::get('JumpSeat::jstravel.successauto', [
+          'location' => $newloc, 
+          'price'    => $ticketprice,
+          'distance' => $traveldistance
+          ])
+        );
       } else {
-        flash()->success('JumpSeat travel completed, you are at '.$newloc.' now. Ticket price was '.$ticketprice);
+        flash()->success(Lang::get('JumpSeat::jstravel.successfixed', [
+          'location' => $newloc,
+          'price'    => $ticketprice
+          ])
+        );
       }
       return redirect(url($croute));
     }
