@@ -1,4 +1,4 @@
-# JumpSeat Travel Module
+# JumpSeat Travel Module (For PhpVms v7)
 
 Module enables JumpSeat Travel for pilots, the frontend is a widget which can be placed anywhere you wish.\
 There are no settings for the module itself, no database tables are there either.\
