@@ -30,7 +30,7 @@ Please be carefull with the base price definition, anything above 0.50 will make
 
 Real world companies normally offer reduced/discounted prices to "ID Travel" partners (other company workers), though they are mostly lower than their base economy ticket prices and offer services between economy and business class, 0.13 or 0.15 cents per nm are good start/default values to have.
 
-`@widget('Modules\JumpSeat\Widgets\JumpSeat', ['list' => 'hubs', 'price' => 'auto', 'base' => 0.20])`
+``` @widget('Modules\JumpSeat\Widgets\JumpSeat', ['list' => 'hubs', 'price' => 'auto', 'base' => 0.20]) ```
 
 `['list' => 'hubs']` will list only your hubs as possible destinations ( update 20.APR.21 )
 
