@@ -34,6 +34,10 @@ Real world companies normally offer reduced/discounted prices to "ID Travel" par
 though they are mostly lower than their base economy ticket prices and offer services between economy and business class, 
 0.13 or 0.15 cents per nm are good start/default values to have.
 
+    @widget('Modules\JumpSeat\Widgets\JumpSeat', ['list' => 'hubs', 'price' => 'auto', 'base' => 0.20])
+
+['list' => 'hubs'] will list only your hubs as possible destinations ( update 20.APR.21 )
+
 S4. (Optional) If you want to edit views you can copy the blade files to your template as described below.
 
 source : phpvms modules\JumpSeat\Resources\views\*.blade.php (or only the ones you want to edit)
