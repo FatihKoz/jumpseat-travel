@@ -11,7 +11,11 @@ class JumpSeat extends Widget
 
   public function run()
   {
-    $jairports = Airport::select('id', 'name', 'location', 'country')->orderBy('id')->get();
+    $jairports = Airport::select('id', 'name', 'location', 'country', 'hub')->orderBy('id')->get();
+
+    if($this->config['list'] === 'hubs') {
+      $jairports = $jairports->where('hub', 1);
+    }
 
     return view('JumpSeat::jumpseat', [
       'jairports' => $jairports,
