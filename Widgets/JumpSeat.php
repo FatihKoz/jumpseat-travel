@@ -7,7 +7,7 @@ use App\Models\Airport;
 
 class JumpSeat extends Widget
 {
-  protected $config = ['price' => 'free', 'base' => 0.13];
+  protected $config = ['list' => null, 'price' => 'free', 'base' => 0.13];
 
   public function run()
   {
