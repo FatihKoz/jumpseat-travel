@@ -4,7 +4,7 @@ Module enables JumpSeat Travel for pilots, the frontend is a widget which can be
 There are no settings for the module itself, no database tables are there either.\
 All settings/adjustments are done via widget config.
 
-***** Installation Steps 
+***** Manual Installation Steps 
 
 S1. Upload contents of the module (or pull via GitHub) to your root/modules/JumpSeat folder.
 
