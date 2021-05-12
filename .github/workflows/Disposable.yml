@@ -1,0 +1,20 @@
+name: 'Create Zip Archive'
+on:
+  release:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Archive Contents
+      uses: thedoctor0/zip-release@master
+      with:
+        filename: 'JumpSeat.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
+    - name: Upload Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "JumpSeat.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
