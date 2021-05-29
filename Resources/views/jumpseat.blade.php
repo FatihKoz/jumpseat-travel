@@ -3,7 +3,7 @@
     <div class="card mb-2">
       <div class="card-header p-1"><h5 class="m-1 p-0"><i class="fas fa-ticket-alt float-right"></i>@lang('JumpSeat::jstravel.jstitle')</h5></div>
       <div class="card-body p-1">
-        <select name="newloc" id="destination" class="form-group input-group mt-1 mb-1 p-1">
+        <select name="newloc" id="destination" class="form-group input-group select2 mt-1 mb-1 p-1">
           <option value="">@lang('JumpSeat::jstravel.jsdropdown')</option>
           @foreach($jairports as $destination)
             <option value="{{ $destination->id }}">{{ $destination->id }} : {{ $destination->name }} ({{ $destination->location }})</option>
