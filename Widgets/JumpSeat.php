@@ -7,7 +7,7 @@ use App\Models\Airport;
 
 class JumpSeat extends Widget
 {
-  protected $config = ['list' => null, 'price' => 'free', 'base' => 0.13];
+  protected $config = ['dest' => null, 'list' => null, 'price' => 'free', 'base' => 0.13];
 
   public function run()
   {
@@ -21,6 +21,7 @@ class JumpSeat extends Widget
       'jairports' => $jairports,
       'price'     => $this->config['price'],
       'basep'     => $this->config['base'],
+      'dest'      => $this->config['dest'],
       ]);
   }
 }
